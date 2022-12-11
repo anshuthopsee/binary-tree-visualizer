@@ -69,7 +69,7 @@ const displayHeap = () => {
         cell.textContent = "";
     });
 
-    let heapBullets = ["Info - Heap", "1. A Heap is a special Tree-based data structure. In which the tree is a complete binary tree.", 
+    let heapBullets = ["Info - Heap", "1. A Heap is a special tree-based data structure. In which the tree is a complete binary-tree.", 
     "2. In a Min Heap, the root key must be less than the keys of it's children.",
     "3. In a Max Heap, the root key must be greater than the keys of it's children.", 
     "4. In a Min Heap, the smallest key is the first to be popped off from the tree.",
@@ -87,8 +87,6 @@ const displayHeap = () => {
         bullet.textContent = heapBullets[i];
     });
 
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, 1900, 533);
     if (bst.minHeapTree || bst.maxHeapTree) {
         bst.drawTree();
@@ -102,11 +100,11 @@ const displayBT = () => {
     });
     removeBtn.textContent = "remove";
 
-    let btBullets = ["Info - BinaryTree", "1. Each node in the BinaryTree can have a maximum of 2 children.", 
+    let btBullets = ["Info - BinaryTree", "1. Each node in the binary-tree can have a maximum of 2 children.", 
     "2. A leaf is a node with no children.",
-    "3. A full BinaryTree is where every node has either 0 or 2 children.", 
-    "4. Smallest value in the BinaryTree is the left most leaf and the largest is the right most.",
-    "5. A complete binary tree is a binary tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
+    "3. A full binary-tree is where every node has either 0 or 2 children.", 
+    "4. Smallest value in the binary-tree is the left most leaf and the largest is the right most.",
+    "5. A complete binary-tree is a binary-tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
 
     const infoBullets = document.getElementById("info_bullets");
 
@@ -120,8 +118,6 @@ const displayBT = () => {
         bullet.textContent = btBullets[i];
     });
 
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, 1900, 533);
     if (bst.root) {
         bst.drawTree(true);
@@ -142,7 +138,7 @@ class Node {
     };
 };
 
-class MinHeap  {
+class MinMaxHeap  {
     constructor() {
         this.minHeap = [null];
         this.maxHeap = [null];
@@ -323,7 +319,7 @@ class MinHeap  {
 	};
 };
 
-class BST extends MinHeap {
+class BST extends MinMaxHeap {
     constructor() {
         super()
         this.display = "bt";
@@ -478,8 +474,8 @@ class BST extends MinHeap {
                     xEnd=x-((32-level)/level);
                 };
     
-                ctx.moveTo(xStart, y-80-((38+level)/level));
-                ctx.lineTo(xEnd, y-(4*level));
+                ctx.moveTo(xStart, y-80-(((30-level)+level)/level));
+                ctx.lineTo(xEnd, y-((4*level)+5-level));
                 ctx.stroke();
             };
         };
@@ -588,5 +584,5 @@ btHeapBtn.addEventListener("click", () => {
         btHeapBtn.textContent = "Try Heap Visualizer...";
         header.textContent = "BinaryTree Visualizer";
     };
-})
+});
 
