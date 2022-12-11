@@ -276,7 +276,7 @@ class MinMaxHeap  {
             addedElems([...this.maxHeap])
             this.createHeapTree();
         };
-	};
+    };
 	
 	removeFromMaxHeap() {
 		let smallest = this.maxHeap[1];
@@ -287,8 +287,8 @@ class MinMaxHeap  {
 				if (this.maxHeap[1] < this.maxHeap[2]) {
 					[this.maxHeap[1], this.maxHeap[2]] = [this.maxHeap[2], this.maxHeap[1]];
 				};
-                addedElems([...this.maxHeap])
-                this.createHeapTree();
+		addedElems([...this.maxHeap])
+		this.createHeapTree();
 				return smallest;
 			};
 			let i = 1;
