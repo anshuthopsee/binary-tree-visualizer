@@ -23,107 +23,6 @@ const displayHeight = (val = -1) => {;
     ctx.stroke();
 };
 
-const displayHeap = () => {
-    const selectHeap = document.createElement("select");
-    selectHeap.id = "select_heap";
-    ["Min Heap", "Max Heap"].map((elem) => {
-        let option = document.createElement("option");
-        option.id = elem;
-        option.value = elem;
-        option.text = elem;
-        option.addEventListener("click", () => {
-            if (bst.heapType !== elem) {
-                bst.heapType = elem;
-                const canvas = document.getElementById("canvas");
-                const ctx = canvas.getContext("2d");
-                ctx.clearRect(0, 0, 1900, 533);
-                tableCells.forEach((cell, i) => {
-                    cell.textContent = "";
-                });
-                if (bst.heapType === "Min Heap") {
-                    removeBtn.textContent = "remove smallest";
-                } else if (bst.heapType === "Max Heap") {
-                    removeBtn.textContent = "remove largest";
-                };
-
-                if (bst.minHeapTree || bst.maxHeapTree) {
-                    bst.drawTree();
-                };
-            };
-        });
-
-        selectHeap.appendChild(option);
-
-        if (bst.heapType === elem) {
-            option.selected = true;
-            if (elem === "Min Heap") {
-                removeBtn.textContent = "remove smallest";
-            } else if (elem === "Max Heap") {
-                removeBtn.textContent = "remove largest";
-            };
-        };
-    });
-
-    controls.prepend(selectHeap);
-    tableCells.forEach((cell, i) => {
-        cell.textContent = "";
-    });
-
-    let heapBullets = ["Info - Heap", "1. A Heap is a special tree-based data structure. In which the tree is a complete binary-tree.", 
-    "2. In a Min Heap, the root key must be less than the keys of it's children.",
-    "3. In a Max Heap, the root key must be greater than the keys of it's children.", 
-    "4. In a Min Heap, the smallest key is the first to be popped off from the tree.",
-    "5. In a Max Heap, the largest key is the first to be popped off from the tree."]
-
-    const infoBullets = document.getElementById("info_bullets");
-
-    infoBullets.childNodes.forEach((bullet) => {
-        if (bullet.className !== "point" && bullet.className !== "info_header") {
-            infoBullets.removeChild(bullet);
-        };
-    });
-
-    infoBullets.childNodes.forEach((bullet, i) => {
-        bullet.textContent = heapBullets[i];
-    });
-
-    ctx.clearRect(0, 0, 1900, 533);
-    if (bst.minHeapTree || bst.maxHeapTree) {
-        bst.drawTree();
-    };
-};
-
-const displayBT = () => {
-    controls.removeChild(controls.childNodes[0]);
-    tableCells.forEach((cell) => {
-        cell.textContent = "";
-    });
-    removeBtn.textContent = "remove";
-
-    let btBullets = ["Info - BinaryTree", "1. Each node in the binary-tree can have a maximum of 2 children.", 
-    "2. A leaf is a node with no children.",
-    "3. A full binary-tree is where every node has either 0 or 2 children.", 
-    "4. Smallest value in the binary-tree is the left most leaf and the largest is the right most.",
-    "5. A complete binary-tree is a binary-tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
-
-    const infoBullets = document.getElementById("info_bullets");
-
-    infoBullets.childNodes.forEach((bullet, i) => {
-        if (bullet.className !== "point" && bullet.className !== "info_header") {
-            infoBullets.removeChild(bullet);
-        };
-    })
-
-    infoBullets.childNodes.forEach((bullet, i) => {
-        bullet.textContent = btBullets[i];
-    });
-
-    ctx.clearRect(0, 0, 1900, 533);
-    if (bst.root) {
-        bst.drawTree(true);
-    };
-};
-
 const addedElems = (result) => {
     tableCells.forEach((cell, i) => {
         cell.textContent = result[i] ? result[i] : "";
@@ -138,7 +37,7 @@ class Node {
     };
 };
 
-class MinMaxHeap  {
+class MinHeap  {
     constructor() {
         this.minHeap = [null];
         this.maxHeap = [null];
@@ -276,7 +175,7 @@ class MinMaxHeap  {
             addedElems([...this.maxHeap])
             this.createHeapTree();
         };
-    };
+	};
 	
 	removeFromMaxHeap() {
 		let smallest = this.maxHeap[1];
@@ -287,8 +186,8 @@ class MinMaxHeap  {
 				if (this.maxHeap[1] < this.maxHeap[2]) {
 					[this.maxHeap[1], this.maxHeap[2]] = [this.maxHeap[2], this.maxHeap[1]];
 				};
-		addedElems([...this.maxHeap])
-		this.createHeapTree();
+                addedElems([...this.maxHeap])
+                this.createHeapTree();
 				return smallest;
 			};
 			let i = 1;
@@ -319,7 +218,7 @@ class MinMaxHeap  {
 	};
 };
 
-class BST extends MinMaxHeap {
+class BST extends MinHeap {
     constructor() {
         super()
         this.display = "bt";
@@ -532,6 +431,117 @@ class BST extends MinMaxHeap {
 
 const bst = new BST();
 
+const displayHeap = () => {
+    btHeapBtn.textContent = "Try BinaryTree Visualizer...";
+    header.textContent = "Heap Visualizer";
+    const selectHeap = document.createElement("select");
+    selectHeap.id = "select_heap";
+    ["Min Heap", "Max Heap"].map((elem) => {
+        let option = document.createElement("option");
+        option.id = elem;
+        option.value = elem;
+        option.text = elem;
+        option.addEventListener("click", () => {
+            if (bst.heapType !== elem) {
+                bst.heapType = elem;
+                const canvas = document.getElementById("canvas");
+                const ctx = canvas.getContext("2d");
+                ctx.clearRect(0, 0, 1900, 533);
+                tableCells.forEach((cell, i) => {
+                    cell.textContent = "";
+                });
+                if (bst.heapType === "Min Heap") {
+                    removeBtn.textContent = "remove smallest";
+                } else if (bst.heapType === "Max Heap") {
+                    removeBtn.textContent = "remove largest";
+                };
+
+                if (bst.minHeapTree || bst.maxHeapTree) {
+                    bst.drawTree();
+                };
+            };
+        });
+
+        selectHeap.appendChild(option);
+
+        if (bst.heapType === elem) {
+            option.selected = true;
+            if (elem === "Min Heap") {
+                removeBtn.textContent = "remove smallest";
+            } else if (elem === "Max Heap") {
+                removeBtn.textContent = "remove largest";
+            };
+        };
+    });
+
+    controls.prepend(selectHeap);
+    tableCells.forEach((cell, i) => {
+        cell.textContent = "";
+    });
+
+    let heapBullets = ["Info - Heap", "1. A Heap is a special Tree-based data structure. In which the tree is a complete binary tree.", 
+    "2. In a Min Heap, the root key must be less than the keys of it's children.",
+    "3. In a Max Heap, the root key must be greater than the keys of it's children.", 
+    "4. In a Min Heap, the smallest key is the first to be popped off from the tree.",
+    "5. In a Max Heap, the largest key is the first to be popped off from the tree."]
+
+    const infoBullets = document.getElementById("info_bullets");
+
+    infoBullets.childNodes.forEach((bullet) => {
+        if (bullet.className !== "point" && bullet.className !== "info_header") {
+            infoBullets.removeChild(bullet);
+        };
+    });
+
+    infoBullets.childNodes.forEach((bullet, i) => {
+        bullet.textContent = heapBullets[i];
+    });
+
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, 1900, 533);
+    if (bst.minHeapTree || bst.maxHeapTree) {
+        bst.drawTree();
+    };
+};
+
+const displayBT = () => {
+    btHeapBtn.textContent = "Try Heap Visualizer...";
+    header.textContent = "BinaryTree Visualizer";
+    controls.removeChild(controls.childNodes[0]);
+    tableCells.forEach((cell) => {
+        cell.textContent = "";
+    });
+    removeBtn.textContent = "remove";
+
+    let btBullets = ["Info - BinaryTree", "1. Each node in the BinaryTree can have a maximum of 2 children.", 
+    "2. A leaf is a node with no children.",
+    "3. A full BinaryTree is where every node has either 0 or 2 children.", 
+    "4. Smallest value in the BinaryTree is the left most leaf and the largest is the right most.",
+    "5. A complete binary tree is a binary tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
+
+    const infoBullets = document.getElementById("info_bullets");
+
+    infoBullets.childNodes.forEach((bullet, i) => {
+        if (bullet.className !== "point" && bullet.className !== "info_header") {
+            infoBullets.removeChild(bullet);
+        };
+    })
+
+    infoBullets.childNodes.forEach((bullet, i) => {
+        bullet.textContent = btBullets[i];
+    });
+
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, 1900, 533);
+    if (bst.root) {
+        bst.drawTree(true);
+    };
+};
+
+displayBT();
+
 addBtn.addEventListener("click", () => {
     if (bst.display === "bt") {
         bst.add(Number(input.value));
@@ -576,13 +586,8 @@ btHeapBtn.addEventListener("click", () => {
     if (bst.display === "bt") {
         bst.display = "heap";
         displayHeap();
-        btHeapBtn.textContent = "Try BinaryTree Visualizer...";
-        header.textContent = "Heap Visualizer";
     } else if (bst.display === "heap") {
         bst.display = "bt";
         displayBT();
-        btHeapBtn.textContent = "Try Heap Visualizer...";
-        header.textContent = "BinaryTree Visualizer";
     };
-});
-
+})
