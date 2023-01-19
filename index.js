@@ -479,7 +479,7 @@ const displayHeap = () => {
         cell.textContent = "";
     });
 
-    let heapBullets = ["Info - Heap", "1. A Heap is a special Tree-based data structure. In which the tree is a complete binary tree.", 
+    let heapBullets = ["Info - Heap", "1. A Heap is a special Tree-based data structure. In which the tree is a complete BinaryTree.", 
     "2. In a Min Heap, the root key must be less than the keys of it's children.",
     "3. In a Max Heap, the root key must be greater than the keys of it's children.", 
     "4. In a Min Heap, the smallest key is the first to be popped off from the tree.",
