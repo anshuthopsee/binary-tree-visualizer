@@ -79,6 +79,11 @@ th{
     width: 350px
 } */
 
+.canvas_container{
+    width: auto;
+    overflow-x: auto;
+}
+
 .canvas{
     margin-top: 10px;
     border: 1px solid red;
