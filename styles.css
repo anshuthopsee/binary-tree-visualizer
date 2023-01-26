@@ -80,8 +80,8 @@ th{
 } */
 
 .canvas_container{
-    width: 1920px;
-    overflow-x: scroll;
+    width: 100%;
+    overflow-x: auto;
 }
 
 .canvas{
