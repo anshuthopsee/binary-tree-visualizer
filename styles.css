@@ -80,7 +80,7 @@ th{
 } */
 
 .canvas_container{
-    width: auto;
+    width: 100%;
     overflow-x: auto;
 }
 
