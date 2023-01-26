@@ -84,6 +84,10 @@ th{
     border: 1px solid red;
 }
 
+.info_bullets{
+    width: 100%;
+}
+
 .info_header {
     height: 60px;
     width: 100%;
