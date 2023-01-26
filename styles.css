@@ -82,9 +82,11 @@ th{
 .canvas{
     margin-top: 10px;
     border: 1px solid red;
+    overflow-x: auto;
 }
 
-.info_bullets{
+#info_bullets{
+    position: fixed;
     width: 100%;
 }
 
