@@ -9,7 +9,7 @@ body {
     height: 60px;
     display: flex;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     background-color: #01bfad;
