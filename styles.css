@@ -82,7 +82,7 @@ th{
 .canvas{
     margin-top: 10px;
     border: 1px solid red;
-    overflow-x: auto;
+    overflow-x: scroll;
 }
 
 #info_bullets{
