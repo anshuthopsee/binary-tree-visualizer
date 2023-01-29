@@ -518,7 +518,7 @@ const displayBT = () => {
     "2. A leaf is a node with no children.",
     "3. A full BinaryTree is where every node has either 0 or 2 children.", 
     "4. Smallest value in the BinaryTree is the left most leaf and the largest is the right most.",
-    "5. A complete binary tree is a binary tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
+    "5. A complete BinaryTree is a BinaryTree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
 
     const infoBullets = document.getElementById("info_bullets");
 
