@@ -9,6 +9,17 @@ const controls = document.querySelector(".controls");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+function onLoad() {
+    canvas.width = window.innerWidth-20;
+};
+onLoad();
+
+function onResize() {
+    canvas.width = window.innerWidth-20;
+    console.log("Being resized")
+};
+window.addEventListener("resize", onResize)
+
 const displayHeight = (val = -1) => {;
     let x = 120;
     let y = 515;
