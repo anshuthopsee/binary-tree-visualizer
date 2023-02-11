@@ -47,8 +47,8 @@ body {
 
 .container{
     margin-top: 70px;
-    margin-left: 0;
     margin-left: 8px;
+    margin-right: 8px;
 }
 
 .controls{
@@ -74,20 +74,14 @@ th{
     width: 19px;
 }
 
-/* .table_row {
-    height: 20px;
-    width: 350px
-} */
-
 .canvas_container{
     width: 100%;
-    overflow-x: auto;
+    display: flex;
 }
 
 .canvas{
     margin-top: 10px;
     border: 1px solid red;
-    overflow-x: scroll;
 }
 
 #info_bullets{
