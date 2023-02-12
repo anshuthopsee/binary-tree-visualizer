@@ -1,6 +1,9 @@
-html, body {
+html {
+    overflow-x: auto;
+}
+
+body {
     margin: 0;
-    overflow-y: scroll;
 }
 
 .navbar{
