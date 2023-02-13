@@ -372,7 +372,7 @@ class BST extends MinHeap {
 
             if (level > 1) {
                 if (level === 2) {
-                    xPlusMinus = 300-(squeezeBy/(level))
+                    xPlusMinus = 300-((squeezeBy*3)/(level))
                 };
                 
                 if (direction === "left") {
