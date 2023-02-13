@@ -9,16 +9,9 @@ const controls = document.querySelector(".controls");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-function onLoad() {
-    canvas.width = window.innerWidth-20;
-};
-onLoad();
-
-function onResize() {
-    canvas.width = window.innerWidth-20;
-    console.log("Being resized")
-};
-window.addEventListener("resize", onResize)
+const height = window.innerHeight;
+const width = window.innerWidth;
+console.log(height, width)
 
 const displayHeight = (val = -1) => {;
     let x = 120;
@@ -368,8 +361,8 @@ class BST extends MinHeap {
 
             let xStart;
             let xEnd
-            let yMinus = 100
-            let xPlusMinus = (178-(((level-1)*(level-1))*10))
+
+            let xPlusMinus = ((178)-(((level-1)*(level-1))*10))
 
             if (level > 1) {
                 if (level === 2) {
@@ -414,9 +407,16 @@ class BST extends MinHeap {
             if (level < 6) {
                 result.push(node.data);
                 draw(node.data, level, direction, x, y);
-                let xPlusMinus = (180-((level*level)*10))
+                let squeezeBy = 0
+                // console.log(window.innerWidth)
+
+                if (1180-window.innerWidth > 0) {
+                    squeezeBy = (1180-window.innerWidth)/(level*4)
+                };
+
+                let xPlusMinus = ((180-squeezeBy)-((level*level)*10))
                 if (level===1) {
-                    xPlusMinus = 300
+                    xPlusMinus = 300-(squeezeBy/(level))
                 };
 
                 node.left && traversePreOrder(node.left, level+1, "left", x-xPlusMinus, y+100);
@@ -424,15 +424,15 @@ class BST extends MinHeap {
             };
         };
         if (BT) {
-            traversePreOrder(this.root, 1,  null, 950, 50);
+            traversePreOrder(this.root, 1,  null, canvas.width/2, 50);
             this.btResult = result;
             displayHeight(height);
         } else {
             if (bst.heapType === "Min Heap") {
-                traversePreOrder(this.minHeapTree, 1,  null, 950, 50);
+                traversePreOrder(this.minHeapTree, 1,  null, canvas.width/2, 50);
                 displayHeight(height);
             } else if (bst.heapType === "Max Heap") {
-                traversePreOrder(this.maxHeapTree, 1,  null, 950, 50);
+                traversePreOrder(this.maxHeapTree, 1,  null, canvas.width/2, 50);
                 displayHeight(height);
             };
         };
@@ -441,6 +441,20 @@ class BST extends MinHeap {
 };
 
 const bst = new BST();
+
+function onLoad() {
+    canvas.width = window.innerWidth-20;
+};
+
+onLoad();
+
+function onResize() {
+    canvas.width = window.innerWidth-20;
+    bst.drawTree(true);
+    console.log("Being resized")
+};
+
+window.addEventListener("resize", onResize)
 
 const displayHeap = () => {
     btHeapBtn.textContent = "Try BinaryTree Visualizer...";
@@ -490,7 +504,7 @@ const displayHeap = () => {
         cell.textContent = "";
     });
 
-    let heapBullets = ["Info - Heap", "1. A Heap is a special Tree-based data structure. In which the tree is a complete BinaryTree.", 
+    const heapBullets = ["Info - Heap", "1. A Heap is a special tree based data structure. In which the tree is a complete BinaryTree.", 
     "2. In a Min Heap, the root key must be less than the keys of it's children.",
     "3. In a Max Heap, the root key must be greater than the keys of it's children.", 
     "4. In a Min Heap, the smallest key is the first to be popped off from the tree.",
@@ -525,11 +539,11 @@ const displayBT = () => {
     });
     removeBtn.textContent = "remove";
 
-    let btBullets = ["Info - BinaryTree", "1. Each node in the BinaryTree can have a maximum of 2 children.", 
+    const btBullets = ["Info - BinaryTree", "1. Each node in the BinaryTree can have a maximum of 2 children.", 
     "2. A leaf is a node with no children.",
     "3. A full BinaryTree is where every node has either 0 or 2 children.", 
     "4. Smallest value in the BinaryTree is the left most leaf and the largest is the right most.",
-    "5. A complete BinaryTree is a BinaryTree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
+    "5. A complete binary tree is a binary tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
 
     const infoBullets = document.getElementById("info_bullets");
 
