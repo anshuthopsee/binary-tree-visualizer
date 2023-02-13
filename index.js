@@ -361,12 +361,18 @@ class BST extends MinHeap {
 
             let xStart;
             let xEnd
+	    let squeezeBy = 0
+            // console.log(window.innerWidth)
 
-            let xPlusMinus = ((178)-(((level-1)*(level-1))*10))
+            if (1180-window.innerWidth > 0) {
+                squeezeBy = (1180-window.innerWidth)/(level*4)
+            };
+
+            let xPlusMinus = ((178-squeezeBy)-(((level-1)*(level-1))*10))
 
             if (level > 1) {
                 if (level === 2) {
-                    xPlusMinus = 300
+                    xPlusMinus = 300-(squeezeBy/(level))
                 };
                 
                 if (direction === "left") {
