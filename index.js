@@ -470,31 +470,32 @@ const displayHeap = () => {
     header.textContent = "Heap Visualizer";
     const selectHeap = document.createElement("select");
     selectHeap.id = "select_heap";
+    selectHeap.addEventListener("change", () => {
+        if (bst.heapType !== ["Min Heap", "Max Heap"][selectHeap.selectedIndex]) {
+            bst.heapType = ["Min Heap", "Max Heap"][selectHeap.selectedIndex];
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, 1900, 533);
+            tableCells.forEach((cell, i) => {
+                cell.textContent = "";
+            });
+            if (bst.heapType === "Min Heap") {
+                removeBtn.textContent = "remove smallest";
+            } else if (bst.heapType === "Max Heap") {
+                removeBtn.textContent = "remove largest";
+            };
+
+            if (bst.minHeapTree || bst.maxHeapTree) {
+                bst.drawTree();
+            };
+        };
+    });
+
     ["Min Heap", "Max Heap"].map((elem) => {
         let option = document.createElement("option");
         option.id = elem;
         option.value = elem;
         option.text = elem;
-        option.addEventListener("click", () => {
-            if (bst.heapType !== elem) {
-                bst.heapType = elem;
-                const canvas = document.getElementById("canvas");
-                const ctx = canvas.getContext("2d");
-                ctx.clearRect(0, 0, 1900, 533);
-                tableCells.forEach((cell, i) => {
-                    cell.textContent = "";
-                });
-                if (bst.heapType === "Min Heap") {
-                    removeBtn.textContent = "remove smallest";
-                } else if (bst.heapType === "Max Heap") {
-                    removeBtn.textContent = "remove largest";
-                };
-
-                if (bst.minHeapTree || bst.maxHeapTree) {
-                    bst.drawTree();
-                };
-            };
-        });
 
         selectHeap.appendChild(option);
 
