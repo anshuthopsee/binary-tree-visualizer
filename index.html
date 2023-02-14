@@ -9,63 +9,52 @@
     <title>BinaryTree Visualizer</title>
 </head>
 <body>
-    <div class="navbar"><span class="header">BinaryTree Visualizer </span> <button class="alt_btn" id="bt_heap_btn">Try Heap Visualizer...</button></div>
+    <div class="navbar"><span class="header"></span> <button class="alt_btn" id="bt_heap_btn"></button></div>
     <div class="container">
         <div class="controls">
-            <input type="number" placeholder="0" id="input"/>
-            <button id="add_button">add</button>
-            <button id="remove_button">remove</button>
-            <button id="clear_button">clear tree</button>
-            <p class="text left_space">Numbers added:</p>
-            <table>
-                <tbody>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="inputs">
+                <input type="number" placeholder="0" min="0" max="99" id="input"/>
+                <button id="add_button">add</button>
+                <button id="remove_button"></button>
+                <button id="clear_button">clear tree</button>
+            </div>
+            <div class="numbers_added">
+                <p class="text left_space">Nos.</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="canvas_container">
             <canvas class="canvas" id="canvas" width="1900" height="533"></canvas>
         </div>
+
     </div>
     <div id="info_bullets">
-        <h1 class="info_header">Info - BinaryTree</h1>
-        <p class="point">1. Each node in the binary-tree can have a maximum of 2 children.</p>
-        <p class="point">2. A leaf is a node with no children.</p>
-        <p class="point">3. A full binary-tree is where every node has either 0 or 2 children.</p>
-        <p class="point">4. Smallest value in the binary-tree is the left most leaf and the largest is the right most.</p>
-        <p class="point">5. A complete binary-tree is a binary-tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left.</p>
+        <h1 class="info_header"></h1>
+        <p class="point"></p>
+        <p class="point"></p>
+        <p class="point"></p>
+        <p class="point"></p>
+        <p class="point"></p>
     </div>
     <script src="index.js"></script>
 </body>
