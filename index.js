@@ -549,11 +549,11 @@ const displayBT = () => {
     });
     removeBtn.textContent = "remove";
 
-    const btBullets = ["Info - BinaryTree", "1. Each node in the BinaryTree can have a maximum of 2 children.", 
+    const btBullets = ["Info - Binary Tree", "1. Each node in the Binary Tree can have a maximum of 2 children.", 
     "2. A leaf is a node with no children.",
-    "3. A full BinaryTree is where every node has either 0 or 2 children.", 
-    "4. Smallest value in the BinaryTree is the left most leaf and the largest is the right most.",
-    "5. A complete binary tree is a binary tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
+    "3. A full Binary Tree is where every node has either 0 or 2 children.", 
+    "4. Smallest value in the Binary Tree is the left most leaf and the largest is the right most.",
+    "5. A complete Binary Tree is a Binary Tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
 
     const infoBullets = document.getElementById("info_bullets");
 
