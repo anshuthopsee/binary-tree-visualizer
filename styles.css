@@ -112,6 +112,7 @@ th{
 #info_bullets{
     width: 100%;
     padding-bottom: 30px;
+    margin-right: 10px;
 }
 
 .info_header {
