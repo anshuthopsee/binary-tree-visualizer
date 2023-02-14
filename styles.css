@@ -29,8 +29,10 @@ body {
     padding-left: 15px;
 }
 
-.left_space {
-    margin-left: 25px
+.inputs{
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .alt_btn {
@@ -55,17 +57,32 @@ body {
     margin-right: 8px;
 }
 
+.text {
+    margin-right: 5px;
+}
+
 .controls{
-    display: inline-flex;
+    display: flex;
     column-gap: 8px;
     align-items: center;
-    height: 25px;
-    width: 1800px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 40px;
+    width: 100%;
+}
+
+.numbers_added{
+    display: inline-flex;
+    align-items: center;
+    text-overflow: initial;
+    height: 30px;
+    width: 520px;
 }
 
 table{
     height: 30px;
-    width: 800px;
+    width: 400px;
 }
 
 .table_container{
@@ -84,7 +101,6 @@ th{
 }
 
 .canvas{
-    margin-top: 10px;
     border: 1px solid red;
 }
 
