@@ -456,8 +456,11 @@ onLoad();
 
 function onResize() {
     canvas.width = window.innerWidth-20;
-    bst.drawTree(true);
-    console.log("Being resized")
+    if (bst.display === "bt") {
+        bst.drawTree(true);
+    } else if (bst.display === "heap") {
+        bst.drawTree();
+    };
 };
 
 window.addEventListener("resize", onResize)
