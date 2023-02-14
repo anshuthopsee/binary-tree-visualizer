@@ -23,7 +23,7 @@ const displayHeight = (val = -1) => {;
 
     ctx.font = "normal 12pt Calibri";
     ctx.fillStyle = "#9e9e9e";
-    ctx.fillText(`Current Height: ${val} (Max Height: 4)`, x, y);
+    ctx.fillText(`Current Height: ${val} (Max Height: 3)`, x, y);
     ctx.stroke();
 };
 
@@ -410,7 +410,7 @@ class BST extends MinHeap {
 
         let result = [];
         const traversePreOrder = (node, level, direction, x, y) => {
-            if (level < 6) {
+            if (level < 5) {
                 result.push(node.data);
                 draw(node.data, level, direction, x, y);
                 let squeezeBy = 0
