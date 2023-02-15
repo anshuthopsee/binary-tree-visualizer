@@ -51,7 +51,7 @@ input{
     cursor: pointer;
 }
 
-.alt_btn:hover {
+.alt_btn:active {
     color: black;
     border-bottom: 1px solid black;
 }
