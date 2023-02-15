@@ -347,7 +347,7 @@ class BST extends MinHeap {
         const draw = (data, level, direction, x , y) => {
             ctx.beginPath();
             ctx.arc(x, y, 20, 0, Math.PI*2, false);
-            ctx.lineWidth = 4;
+            ctx.lineWidth = 3;
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.font = "bold 20pt Calibri";
