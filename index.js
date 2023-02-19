@@ -339,7 +339,7 @@ class BST extends MinHeap {
         };
     };
 
-    drawTree(BT=false) {
+    drawTree() {
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, 1900, 533);
@@ -393,18 +393,18 @@ class BST extends MinHeap {
             };
         };
 
-        if (BT) {
+        if (this.display === "bt") {
             if (this.root === null) {
                 addedElems(0);
                 return null;
             };
-        } else {
-            if (bst.heapType === "Min Heap") {
+        } else if (this.display === "heap") {
+            if (this.heapType === "Min Heap") {
                 if (this.minHeapTree === null || this.minHeap.length === 1) {
                     addedElems(0);
                     return null;
                 };
-            } else if (bst.heapType === "Max Heap") {
+            } else if (this.heapType === "Max Heap") {
                 if (this.maxHeapTree === null || this.maxHeap.length === 1) {
                     addedElems(0);
                     return null;
@@ -432,15 +432,15 @@ class BST extends MinHeap {
                 node.right && traversePreOrder(node.right, level+1, "right", x+xPlusMinus, y+100);
             };
         };
-        if (BT) {
+        if (this.display === "bt") {
             traversePreOrder(this.root, 1,  null, canvas.width/2, 50);
             this.btResult = result;
             displayHeight(height);
-        } else {
-            if (bst.heapType === "Min Heap") {
+        } else if (this.display === "heap") {
+            if (this.heapType === "Min Heap") {
                 traversePreOrder(this.minHeapTree, 1,  null, canvas.width/2, 50);
                 displayHeight(height);
-            } else if (bst.heapType === "Max Heap") {
+            } else if (this.heapType === "Max Heap") {
                 traversePreOrder(this.maxHeapTree, 1,  null, canvas.width/2, 50);
                 displayHeight(height);
             };
