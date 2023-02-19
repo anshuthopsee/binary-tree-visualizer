@@ -346,11 +346,11 @@ class BST extends MinHeap {
         let height = 0;
         const draw = (data, level, direction, x , y) => {
             ctx.beginPath();
-            ctx.arc(x, y, 15, 0, Math.PI*2, false);
+            ctx.arc(x, y, 20, 0, Math.PI*2, false);
             ctx.lineWidth = 3;
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-            ctx.font = "bold 10pt Calibri";
+            ctx.font = "bold 20pt Calibri";
             ctx.fillStyle = "black";
             ctx.fillText(data, x, y);
             ctx.stroke();
@@ -376,7 +376,7 @@ class BST extends MinHeap {
 
             if (level > 1) {
                 if (level === 2) {
-                    xPlusMinus = 285-((squeezeBy*2.8)/(level))
+                    xPlusMinus = 290-((squeezeBy*2.8)/(level))
                 };
                 
                 if (direction === "left") {
@@ -425,7 +425,7 @@ class BST extends MinHeap {
 
                 let xPlusMinus = ((180-squeezeBy)-((level*level)*10))
                 if (level===1) {
-                    xPlusMinus = 285-(squeezeBy/(level))
+                    xPlusMinus = 290-(squeezeBy/(level))
                 };
 
                 node.left && traversePreOrder(node.left, level+1, "left", x-xPlusMinus, y+100);
