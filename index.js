@@ -376,7 +376,7 @@ class BST extends MinHeap {
 
             if (level > 1) {
                 if (level === 2) {
-                    xPlusMinus = 290-((squeezeBy*2.8)/(level))
+                    xPlusMinus = 285-((squeezeBy*2.8)/(level))
                 };
                 
                 if (direction === "left") {
@@ -425,7 +425,7 @@ class BST extends MinHeap {
 
                 let xPlusMinus = ((180-squeezeBy)-((level*level)*10))
                 if (level===1) {
-                    xPlusMinus = 290-(squeezeBy/(level))
+                    xPlusMinus = 285-(squeezeBy/(level))
                 };
 
                 node.left && traversePreOrder(node.left, level+1, "left", x-xPlusMinus, y+100);
