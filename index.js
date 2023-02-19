@@ -11,7 +11,6 @@ const ctx = canvas.getContext("2d");
 
 const height = window.innerHeight;
 const width = window.innerWidth;
-console.log(height, width)
 
 const displayHeight = (val = -1) => {;
     let x = 120;
@@ -74,15 +73,15 @@ class MinHeap  {
 
     createHeapTree() {
         let arr;
-        if (bst.heapType === "Min Heap") {
+        if (this..heapType === "Min Heap") {
             arr = [...this.minHeap]
-        } else if (bst.heapType === "Max Heap") {
+        } else if (this..heapType === "Max Heap") {
             arr = [...this.maxHeap]
         };
         
-        if (this.minHeapTree === null && bst.heapType === "Min Heap") {
+        if (this.minHeapTree === null && this.heapType === "Min Heap") {
             this.minHeapTree = new Node(this.minHeap[1]);
-        } else if (this.maxHeapTree === null && bst.heapType === "Max Heap") {
+        } else if (this.maxHeapTree === null && this.heapType === "Max Heap") {
             this.maxHeapTree = new Node(this.maxHeap[1]);
         } else {
             const helper = (node, left, right) => {
@@ -101,10 +100,10 @@ class MinHeap  {
             let left = 2 * i;
             let right = 2 * i + 1;
             
-            if (bst.heapType === "Min Heap") {
+            if (this.heapType === "Min Heap") {
                 this.minHeapTree = new Node(this.minHeap[1]);
                 helper(this.minHeapTree, left, right);
-            } else if (bst.heapType === "Max Heap") {
+            } else if (this.heapType === "Max Heap") {
                 this.maxHeapTree = new Node(this.maxHeap[1]);
                 helper(this.maxHeapTree, left, right);
             };
@@ -340,8 +339,6 @@ class BST extends MinHeap {
     };
 
     drawTree() {
-        const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, 1900, 533);
         let height = 0;
         const draw = (data, level, direction, x , y) => {
@@ -369,21 +366,21 @@ class BST extends MinHeap {
                     val = 2.6;
                 };
 		    
-                squeezeBy = (1180-window.innerWidth)/(level*val)
+                squeezeBy = (1180-window.innerWidth)/(level*val);
             };
 
             let xPlusMinus = ((178-squeezeBy)-(((level-1)*(level-1))*10))
 
             if (level > 1) {
                 if (level === 2) {
-                    xPlusMinus = 290-((squeezeBy*2.8)/(level))
+                    xPlusMinus = 290-((squeezeBy*2.8)/(level));
                 };
                 
                 if (direction === "left") {
-                    xStart=x+xPlusMinus-((36+level)/level)
+                    xStart=x+xPlusMinus-((36+level)/level);
                     xEnd=x+((32-level)/level);
                 } else if (direction === "right") {
-                    xStart=(x-xPlusMinus)+((36+level)/level)
+                    xStart=(x-xPlusMinus)+((36+level)/level);
                     xEnd=x-((32-level)/level);
                 };
     
@@ -409,7 +406,7 @@ class BST extends MinHeap {
                     addedElems(0);
                     return null;
                 };
-            }
+            };
         };
 
         let result = [];
@@ -420,12 +417,12 @@ class BST extends MinHeap {
                 let squeezeBy = 0;
 
                 if (1180-window.innerWidth > 0) {
-                    squeezeBy = (1180-window.innerWidth)/(level*4)
+                    squeezeBy = (1180-window.innerWidth)/(level*4);
                 };
 
-                let xPlusMinus = ((180-squeezeBy)-((level*level)*10))
+                let xPlusMinus = ((180-squeezeBy)-((level*level)*10));
                 if (level===1) {
-                    xPlusMinus = 290-(squeezeBy/(level))
+                    xPlusMinus = 290-(squeezeBy/(level));
                 };
 
                 node.left && traversePreOrder(node.left, level+1, "left", x-xPlusMinus, y+100);
@@ -472,8 +469,6 @@ const displayHeap = () => {
     selectHeap.addEventListener("change", () => {
         if (bst.heapType !== ["Min Heap", "Max Heap"][selectHeap.selectedIndex]) {
             bst.heapType = ["Min Heap", "Max Heap"][selectHeap.selectedIndex];
-            const canvas = document.getElementById("canvas");
-            const ctx = canvas.getContext("2d");
             ctx.clearRect(0, 0, 1900, 533);
             tableCells.forEach((cell, i) => {
                 cell.textContent = "";
@@ -495,7 +490,6 @@ const displayHeap = () => {
         option.id = elem;
         option.value = elem;
         option.text = elem;
-
         selectHeap.appendChild(option);
 
         if (bst.heapType === elem) {
@@ -517,7 +511,7 @@ const displayHeap = () => {
     "2. In a Min Heap, the root key must be less than the keys of it's children.",
     "3. In a Max Heap, the root key must be greater than the keys of it's children.", 
     "4. In a Min Heap, the smallest key is the first to be popped off from the tree.",
-    "5. In a Max Heap, the largest key is the first to be popped off from the tree."]
+    "5. In a Max Heap, the largest key is the first to be popped off from the tree."];
 
     const infoBullets = document.getElementById("info_bullets");
 
@@ -531,8 +525,6 @@ const displayHeap = () => {
         bullet.textContent = heapBullets[i];
     });
 
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, 1900, 533);
     if (bst.minHeapTree || bst.maxHeapTree) {
         bst.drawTree();
@@ -552,7 +544,7 @@ const displayBT = () => {
     "2. A leaf is a node with no children.",
     "3. A full Binary Tree is where every node has either 0 or 2 children.", 
     "4. Smallest value in the Binary Tree is the left most leaf and the largest is the right most.",
-    "5. A complete Binary Tree is a Binary Tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."]
+    "5. A complete Binary Tree is a Binary Tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."];
 
     const infoBullets = document.getElementById("info_bullets");
 
@@ -566,8 +558,6 @@ const displayBT = () => {
         bullet.textContent = btBullets[i];
     });
 
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, 1900, 533);
     if (bst.root) {
         bst.drawTree();
