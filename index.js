@@ -238,7 +238,7 @@ class BST extends MinHeap {
         if(!node) {
             this.root = new Node(data);
             count++;
-            this.drawTree(true);
+            this.drawTree();
             return this.root;
 
         } else {
@@ -269,7 +269,7 @@ class BST extends MinHeap {
                 };
             };
             searchTree(node, count);
-            this.drawTree(true);
+            this.drawTree();
             return this.root
         };
     };
@@ -311,7 +311,7 @@ class BST extends MinHeap {
             };
         };
         this.root = removeNode(this.root, data);
-        this.drawTree(true);
+        this.drawTree();
     };
 
     findMaxHeight(node) {
@@ -459,11 +459,7 @@ onLoad();
 
 function onResize() {
     canvas.width = window.innerWidth-20;
-    if (bst.display === "bt") {
-        bst.drawTree(true);
-    } else if (bst.display === "heap") {
-        bst.drawTree();
-    };
+    bst.drawTree();
 };
 
 window.addEventListener("resize", onResize)
@@ -574,7 +570,7 @@ const displayBT = () => {
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, 1900, 533);
     if (bst.root) {
-        bst.drawTree(true);
+        bst.drawTree();
     };
 };
 
@@ -607,7 +603,7 @@ removeBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
     if (bst.display === "bt") {
         bst.root = null;
-        bst.drawTree(true);
+        bst.drawTree();
     } else if (bst.display === "heap") {
         if (bst.heapType === "Min Heap") {
             bst.minHeap = [null];
