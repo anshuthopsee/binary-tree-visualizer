@@ -414,7 +414,7 @@ class BST extends MinHeap {
 
         let result = [];
         const traversePreOrder = (node, level, direction, x, y) => {
-            if (level < 5) {
+            if (level < 6) {
                 result.push(node.data);
                 draw(node.data, level, direction, x, y);
                 let squeezeBy = 0;
