@@ -360,9 +360,8 @@ class BST extends MinHeap {
             };
 
             let xStart;
-            let xEnd
-	    let squeezeBy = 0
-            // console.log(window.innerWidth)
+            let xEnd;
+	    let squeezeBy = 0;
 
             if (1180-window.innerWidth > 0) {
 	    	let val = 2.8;
@@ -377,7 +376,7 @@ class BST extends MinHeap {
 
             if (level > 1) {
                 if (level === 2) {
-                    xPlusMinus = 300-((squeezeBy*2.8)/(level))
+                    xPlusMinus = 290-((squeezeBy*2.8)/(level))
                 };
                 
                 if (direction === "left") {
@@ -418,8 +417,7 @@ class BST extends MinHeap {
             if (level < 5) {
                 result.push(node.data);
                 draw(node.data, level, direction, x, y);
-                let squeezeBy = 0
-                // console.log(window.innerWidth)
+                let squeezeBy = 0;
 
                 if (1180-window.innerWidth > 0) {
                     squeezeBy = (1180-window.innerWidth)/(level*4)
@@ -427,7 +425,7 @@ class BST extends MinHeap {
 
                 let xPlusMinus = ((180-squeezeBy)-((level*level)*10))
                 if (level===1) {
-                    xPlusMinus = 300-(squeezeBy/(level))
+                    xPlusMinus = 290-(squeezeBy/(level))
                 };
 
                 node.left && traversePreOrder(node.left, level+1, "left", x-xPlusMinus, y+100);
