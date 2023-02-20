@@ -73,7 +73,7 @@ class MinHeap  {
 
     createHeapTree() {
         let arr;
-        if (this..heapType === "Min Heap") {
+        if (this.heapType === "Min Heap") {
             arr = [...this.minHeap]
         } else if (this..heapType === "Max Heap") {
             arr = [...this.maxHeap]
