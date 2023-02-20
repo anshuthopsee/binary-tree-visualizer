@@ -566,6 +566,12 @@ const displayBT = () => {
 
 displayBT();
 
+input.addEventListener("change", (e) => {
+    if (e.target.value < 0 || e.target.value > 99) {
+        input.value = 0;
+    };
+});
+
 addBtn.addEventListener("click", () => {
     if (bst.display === "bt") {
         bst.add(Number(input.value));
