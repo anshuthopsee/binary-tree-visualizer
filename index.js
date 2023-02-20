@@ -28,7 +28,7 @@ const displayHeight = (val = -1) => {;
 
 const addedElems = (result) => {
     tableCells.forEach((cell, i) => {
-        cell.textContent = result[i] ? result[i] : "";
+        cell.textContent = result[i] >= 0 ? result[i] < 100 ? result[i] : "" : "";
     });
 };
 
