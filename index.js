@@ -369,7 +369,7 @@ class BST extends MinHeap {
                 squeezeBy = (1180-window.innerWidth)/(level*val);
             };
 
-            let xPlusMinus = ((178-squeezeBy)-(((level-1)*(level-1))*10))
+            let xPlusMinus = ((173-squeezeBy)-(((level-1)*(level-1))*10))
 
             if (level > 1) {
                 if (level === 2) {
@@ -420,7 +420,7 @@ class BST extends MinHeap {
                     squeezeBy = (1180-window.innerWidth)/(level*4);
                 };
 
-                let xPlusMinus = ((180-squeezeBy)-((level*level)*10));
+                let xPlusMinus = ((175-squeezeBy)-((level*level)*10));
                 if (level===1) {
                     xPlusMinus = 290-(squeezeBy/(level));
                 };
@@ -540,9 +540,9 @@ const displayBT = () => {
     });
     removeBtn.textContent = "remove";
 
-    const btBullets = ["Info - Binary Tree", "1. Each node in the Binary Tree can have a maximum of 2 children.", 
+    const btBullets = ["Info - Binary Tree", "1. Each node in the Binary Tree can have a maximum of two children.", 
     "2. A leaf is a node with no children.",
-    "3. A full Binary Tree is where every node has either 0 or 2 children.", 
+    "3. A full Binary Tree is where every node has either zero or two children.", 
     "4. Smallest value in the Binary Tree is the left most leaf and the largest is the right most.",
     "5. A complete Binary Tree is a Binary Tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left."];
 
