@@ -9,9 +9,6 @@ const controls = document.querySelector(".controls");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const height = window.innerHeight;
-const width = window.innerWidth;
-
 const displayHeight = (val = -1) => {;
     let x = 120;
     let y = 515;
@@ -49,29 +46,8 @@ class MinHeap  {
         this.heapResult = null;
         this.heapType = "Min Heap";
     };
-
-    addToMinHeap(num) {
-        if (!this.minHeap.includes(num) && this.minHeap.length < 32) {
-            this.minHeap.push(num);
-            if (this.minHeap.length > 2) {
-                let idx = this.minHeap.length - 1;
-                if (idx >= 1) {
-                    while(this.minHeap[idx] < this.minHeap[Math.floor(idx/2)]) {
-                        [this.minHeap[Math.floor(idx/2)], this.minHeap[idx]] = [this.minHeap[idx], this.minHeap[Math.floor(idx/2)]];
-                        if (idx > 1) {
-                            idx = Math.floor(idx/2);
-                        } else {
-                            break;
-                        };
-                    };
-                };
-            };
-            addedElems([...this.minHeap])
-            this.createHeapTree();
-        };
-    };
-
-    createHeapTree() {
+	
+	createHeapTree() {
         let arr;
         if (this.heapType === "Min Heap") {
             arr = [...this.minHeap]
@@ -110,6 +86,27 @@ class MinHeap  {
         };
 
         this.drawTree();
+    };
+
+    addToMinHeap(num) {
+        if (!this.minHeap.includes(num) && this.minHeap.length < 32) {
+            this.minHeap.push(num);
+            if (this.minHeap.length > 2) {
+                let idx = this.minHeap.length - 1;
+                if (idx >= 1) {
+                    while(this.minHeap[idx] < this.minHeap[Math.floor(idx/2)]) {
+                        [this.minHeap[Math.floor(idx/2)], this.minHeap[idx]] = [this.minHeap[idx], this.minHeap[Math.floor(idx/2)]];
+                        if (idx > 1) {
+                            idx = Math.floor(idx/2);
+                        } else {
+                            break;
+                        };
+                    };
+                };
+            };
+            addedElems([...this.minHeap])
+            this.createHeapTree();
+        };
     };
 
     removeFromMinHeap() {
@@ -311,31 +308,6 @@ class BST extends MinHeap {
         };
         this.root = removeNode(this.root, data);
         this.drawTree();
-    };
-
-    findMaxHeight(node) {
-        if (node === null) {
-            return -1;
-        };
-
-        let left = this.findMaxHeight(node.left);
-        let right = this.findMaxHeight(node.right);
-
-        if (left > right) {
-            return left + 1;
-
-        } else {
-            return right + 1;
-        };
-    };
-
-    isBalanced() {
-        if (this.findMaxHeight() === this.findMinHeight() || this.findMaxHeight()-1 === this.findMinHeight()) {
-            return true;
-
-        } else {
-            return false;
-        };
     };
 
     drawTree() {
