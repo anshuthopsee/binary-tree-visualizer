@@ -341,7 +341,7 @@ class BST extends MinHeap {
                 squeezeBy = (1180-window.innerWidth)/(level*val);
             };
 
-            let xPlusMinus = ((183-squeezeBy)-(((level-1)*(level-1))*10))
+            let xPlusMinus = ((181-squeezeBy)-(((level-1)*(level-1))*10))
 
             if (level > 1) {
                 if (level === 2) {
@@ -392,7 +392,7 @@ class BST extends MinHeap {
                     squeezeBy = (1180-window.innerWidth)/(level*4);
                 };
 
-                let xPlusMinus = ((185-squeezeBy)-((level*level)*10));
+                let xPlusMinus = ((183-squeezeBy)-((level*level)*10));
                 if (level===1) {
                     xPlusMinus = 290-(squeezeBy/(level));
                 };
