@@ -321,7 +321,7 @@ class BST extends MinHeap {
             ctx.lineWidth = lineWidth;
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-            ctx.font = "bold 20pt Calibri";
+            ctx.font = `bold {value}pt Calibri`;
             ctx.fillStyle = "black";
             ctx.fillText(data, x, y);
             ctx.stroke();
