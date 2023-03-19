@@ -313,10 +313,12 @@ class BST extends MinHeap {
     drawTree() {
         ctx.clearRect(0, 0, 1900, 533);
         let height = 0;
+    	let value = window.innerWidth < 850 ? 10 : 20;
+        let lineWidth = window.innerWidth < 850 ? 1 : 3;
         const draw = (data, level, direction, x , y) => {
             ctx.beginPath();
-            ctx.arc(x, y, 20, 0, Math.PI*2, false);
-            ctx.lineWidth = 3;
+            ctx.arc(x, y, value, 0, Math.PI*2, false);
+            ctx.lineWidth = lineWidth;
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.font = "bold 20pt Calibri";
@@ -324,8 +326,7 @@ class BST extends MinHeap {
             ctx.fillText(data, x, y);
             ctx.stroke();
 
-             let xStart;
-
+	    let xStart;
             let squeezeBy = 0
 
             if (1180-window.innerWidth > 0) {
