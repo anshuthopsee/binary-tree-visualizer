@@ -313,9 +313,10 @@ class BST extends MinHeap {
     drawTree() {
         ctx.clearRect(0, 0, 1900, 533);
         let height = 0;
-    	let value = window.innerWidth < 850 ? 10 : 20;
-        let lineWidth = window.innerWidth < 850 ? 1 : 3;
+    	
         const draw = (data, level, direction, x , y) => {
+            let value = window.innerWidth < 850 ? 10 : 20;
+       	    let lineWidth = window.innerWidth < 850 ? 1 : 3;
             ctx.beginPath();
             ctx.arc(x, y, value, 0, Math.PI*2, false);
             ctx.lineWidth = lineWidth;
@@ -337,22 +338,22 @@ class BST extends MinHeap {
                 
                 if (level===2) {
                     if (direction === "left") {xStart=x+280-squeezeBy*1.2}
-                    if (direction === "right") {xStart=x-280-squeezeBy*1.2}
+                    if (direction === "right") {xStart=x-280+squeezeBy*1.2}
                 };
 
                 if (level===3) {
                     if (direction === "left") {xStart=x+140-squeezeBy*1.2}
-                    if (direction === "right") {xStart=x-140-squeezeBy*1.2}
+                    if (direction === "right") {xStart=x-140+squeezeBy*1.2}
                 };
 
                 if (level===4) {
                     if (direction === "left") {xStart=x+70-squeezeBy*0.9}
-                    if (direction === "right") {xStart=x-70-squeezeBy*0.9}
+                    if (direction === "right") {xStart=x-70+squeezeBy*0.9}
                 };
 
                 if (level===5) {
                     if (direction === "left") {xStart=x+30-squeezeBy*0.5}
-                    if (direction === "right") {xStart=x-30-squeezeBy*0.5}
+                    if (direction === "right") {xStart=x-30+squeezeBy*0.5}
                 };
     
                 ctx.moveTo(xStart, y-(100-value));
