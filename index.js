@@ -19,7 +19,7 @@ const displayHeight = (val = -1) => {;
 
     ctx.font = "normal 12pt Calibri";
     ctx.fillStyle = "#9e9e9e";
-    ctx.fillText(`Current Height: ${val} (Max Height: 3)`, x, y);
+    ctx.fillText(`Current Height: ${val} (Max Height: 4)`, x, y);
     ctx.stroke();
 };
 
@@ -324,40 +324,38 @@ class BST extends MinHeap {
             ctx.fillText(data, x, y);
             ctx.stroke();
 
-            if (level-1 > height) {
-                height = level-1;
-            };
+             let xStart;
 
-            let xStart;
-            let xEnd;
-	    let squeezeBy = 0;
+            let squeezeBy = 0
 
             if (1180-window.innerWidth > 0) {
-	    	let val = 2.8;
-                if (level === 3) {
-                    val = 2.6;
-                };
-		    
-                squeezeBy = (1180-window.innerWidth)/(level*val);
+                squeezeBy = (1180-window.innerWidth)/((level-1)*5)
             };
 
-            let xPlusMinus = ((181-squeezeBy)-(((level-1)*(level-1))*10))
-
             if (level > 1) {
-                if (level === 2) {
-                    xPlusMinus = 290-((squeezeBy*2.8)/(level));
-                };
                 
-                if (direction === "left") {
-                    xStart=x+xPlusMinus-((36+level)/level);
-                    xEnd=x+((32-level)/level);
-                } else if (direction === "right") {
-                    xStart=(x-xPlusMinus)+((36+level)/level);
-                    xEnd=x-((32-level)/level);
+                if (level===2) {
+                    if (direction === "left") {xStart=x+280-squeezeBy*1.2}
+                    if (direction === "right") {xStart=x-280-squeezeBy*1.2}
+                };
+
+                if (level===3) {
+                    if (direction === "left") {xStart=x+140-squeezeBy*1.2}
+                    if (direction === "right") {xStart=x-140-squeezeBy*1.2}
+                };
+
+                if (level===4) {
+                    if (direction === "left") {xStart=x+70-squeezeBy*0.9}
+                    if (direction === "right") {xStart=x-70-squeezeBy*0.9}
+                };
+
+                if (level===5) {
+                    if (direction === "left") {xStart=x+30-squeezeBy*0.5}
+                    if (direction === "right") {xStart=x-30-squeezeBy*0.5}
                 };
     
-                ctx.moveTo(xStart, y-80-(((30-level)+level)/level));
-                ctx.lineTo(xEnd, y-((4*level)+5-level));
+                ctx.moveTo(xStart, y-(100-value));
+                ctx.lineTo(x, y-value);
                 ctx.stroke();
             };
         };
@@ -383,19 +381,21 @@ class BST extends MinHeap {
 
         let result = [];
         const traversePreOrder = (node, level, direction, x, y) => {
-            if (level < 5) {
+            if (level <= 5) {
                 result.push(node.data);
                 draw(node.data, level, direction, x, y);
                 let squeezeBy = 0;
 
-                if (1180-window.innerWidth > 0) {
-                    squeezeBy = (1180-window.innerWidth)/(level*4);
+                 if (1180-window.innerWidth > 0) {
+                    squeezeBy = (1180-window.innerWidth)/(level*5)
                 };
 
-                let xPlusMinus = ((183-squeezeBy)-((level*level)*10));
-                if (level===1) {
-                    xPlusMinus = 290-(squeezeBy/(level));
-                };
+                let xPlusMinus = 280;
+
+                if (level===1) {xPlusMinus = 280-squeezeBy*1.2} 
+                if (level===2) {xPlusMinus = 140-squeezeBy*1.2} 
+                if (level===3) {xPlusMinus = 70-squeezeBy*0.9} 
+                if (level===4) {xPlusMinus = 30-squeezeBy*0.5}
 
                 node.left && traversePreOrder(node.left, level+1, "left", x-xPlusMinus, y+100);
                 node.right && traversePreOrder(node.right, level+1, "right", x+xPlusMinus, y+100);
