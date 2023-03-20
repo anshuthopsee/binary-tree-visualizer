@@ -328,7 +328,7 @@ class BST extends MinHeap {
 
 	    let xStart;
             let squeezeBy = 0;
-	    height = level-1;
+	    if (level-1 > height) height = level-1;
 
             if (1180-window.innerWidth > 0) {
                 squeezeBy = (1180-window.innerWidth)/((level-1)*5)
