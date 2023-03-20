@@ -315,14 +315,13 @@ class BST extends MinHeap {
         let height = 0;
     	
         const draw = (data, level, direction, x , y) => {
-            let value = window.innerWidth < 850 ? 10 : 20;
-       	    let lineWidth = window.innerWidth < 850 ? 1 : 3;
+            let radius = window.innerWidth < 850 ? 10 : 20;
             ctx.beginPath();
-            ctx.arc(x, y, value, 0, Math.PI*2, false);
-            ctx.lineWidth = lineWidth;
+            ctx.arc(x, y, radius, 0, Math.PI*2, false);
+            ctx.lineWidth = 3;
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-            ctx.font = `bold {value}pt Calibri`;
+            ctx.font = "bold 12pt Calibri";
             ctx.fillStyle = "black";
             ctx.fillText(data, x, y);
             ctx.stroke();
@@ -356,8 +355,8 @@ class BST extends MinHeap {
                     if (direction === "right") {xStart=x-30+squeezeBy*0.5}
                 };
     
-                ctx.moveTo(xStart, y-(100-value));
-                ctx.lineTo(x, y-value);
+                ctx.moveTo(xStart, y-(100-radius));
+                ctx.lineTo(x, y-radius);
                 ctx.stroke();
             };
         };
