@@ -1,12 +1,8 @@
-html {
-    overflow: scroll;
-}
-
 body {
     margin: 0;
 }
 
-.navbar{
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,7 +18,7 @@ body {
     font-size: 28px;
 }
 
-.header{
+.header {
     color: white;
     font-size: 28px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -30,13 +26,13 @@ body {
     padding-left: 15px;
 }
 
-.inputs{
+.inputs {
     margin-right: 25px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-input{
+input {
     width: 60px;
 }
 
@@ -56,7 +52,7 @@ input{
     border-bottom: 1px solid black;
 }
 
-.container{
+.container {
     margin-top: 70px;
     margin-left: 8px;
     margin-right: 8px;
@@ -66,7 +62,7 @@ input{
     margin-right: 5px;
 }
 
-.controls{
+.controls {
     display: flex;
     column-gap: 8px;
     align-items: center;
@@ -77,39 +73,35 @@ input{
     width: 100%;
 }
 
-.numbers_added{
+.numbers_added {
     display: inline-flex;
     align-items: center;
-    text-overflow: initial;
     height: 30px;
-    width: 520px;
+    width: 1000px;
+    overflow-x: auto;
 }
 
-table{
+table {
     height: 30px;
-    width: 400px;
+    width: 800px;
+    table-layout: fixed;
 }
 
-.table_container{
-    margin-left: 15px;
-    width: max-content;
-}
-
-th{
+th {
     border: 1px solid black;
     width: 19px;
 }
 
-.canvas_container{
+.canvas_container {
     width: 100%;
     display: flex;
 }
 
-.canvas{
+.canvas {
     border: 1px solid red;
 }
 
-#info_bullets{
+#info_bullets {
     width: 100%;
     padding-bottom: 30px;
     margin-right: 10px;
