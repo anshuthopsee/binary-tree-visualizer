@@ -313,9 +313,9 @@ class BST extends MinHeap {
     drawTree() {
         ctx.clearRect(0, 0, 1900, 533);
         let height = 0;
+        let radius = window.innerWidth < 850 ? 12 : 20;
     	
         const draw = (data, level, direction, x , y) => {
-            let radius = window.innerWidth < 850 ? 10 : 20;
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI*2, false);
             ctx.lineWidth = 3;
