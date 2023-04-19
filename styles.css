@@ -94,7 +94,6 @@ th {
 .canvas_container {
     width: 100%;
     display: flex;
-    margin-bottom: 10px;
 }
 
 .canvas {
@@ -108,6 +107,7 @@ th {
 }
 
 .info_header {
+    margin-top: 10px;
     height: 60px;
     width: 100%;
     background-color: #01bfad;
