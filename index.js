@@ -436,7 +436,7 @@ function onResize() {
 window.addEventListener("resize", onResize)
 
 const displayHeap = () => {
-    btHeapBtn.textContent = "BinaryTree Visualizer";
+    btHeapBtn.textContent = "Binar yTree Visualizer";
     header.textContent = "Heap Visualizer";
     const selectHeap = document.createElement("select");
     selectHeap.id = "select_heap";
@@ -507,7 +507,7 @@ const displayHeap = () => {
 
 const displayBT = () => {
     btHeapBtn.textContent = "Heap Visualizer";
-    header.textContent = "BinaryTree Visualizer";
+    header.textContent = "Binary Tree Visualizer";
     controls.removeChild(controls.childNodes[0]);
     tableCells.forEach((cell) => {
         cell.textContent = "";
