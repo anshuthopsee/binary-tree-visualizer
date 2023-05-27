@@ -436,7 +436,7 @@ function onResize() {
 window.addEventListener("resize", onResize)
 
 const displayHeap = () => {
-    btHeapBtn.textContent = "Binar yTree Visualizer";
+    btHeapBtn.textContent = "Binary Tree Visualizer";
     header.textContent = "Heap Visualizer";
     const selectHeap = document.createElement("select");
     selectHeap.id = "select_heap";
