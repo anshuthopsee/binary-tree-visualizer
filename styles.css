@@ -121,7 +121,7 @@ th{
 
 .info_header {
     height: 4rem;
-    width: 100%;
+    width: calc(100% - 10px);
     background-color: #01bfad;
     color: white;
     display: flex;
